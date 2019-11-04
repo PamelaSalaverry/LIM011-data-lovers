@@ -8,27 +8,91 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body> 
-    <div id = "home">
-      <figure class = "imgPrincipal"></figure>
-    <p class = "start" >
-      Una tragedia ha asolado el mundo mágico y ha repartido Incontratus por el mundo muggle. Como nuevo miembro de las Fuerzas Especiales del Estatuto del Secreto, deberás trabajar conjuntamente con otros magos y brujas 
-      de todo el mundo para resolver el misterio de la tragedia y evitar que el secreto mágico quede expuesto. Podrás especializarte en diferentes profesiones mágicas, cada una tendrá habilidades y destrezas únicas. 
-      Alista tu varita, avisa a tus amigos y prepárense para proteger al mundo mágico de la tragedia mundial. ¡Una nueva aventura mágica te espera! <br> 
-      <button href = "#" type = "button" id = "enter">INGRESAR</button></p></div>
-    <div id="root" class = "root hide">
-      <header id = "header" class = "header">
-      <h1>Conoce mas de tus Personajes</h1>
-      <select>
-        <option value=" ">FILTRAR POR</option><option value="casas">Casas</option><option value="varita">Varita</option>
-        <option value="patronus">Patronus</option></option></select><br> </li>
-        <li>ORDENAR</li></section></header><br>
-      <div id = "character" class = >
-        <li class = "people1"></li>
-        <li class = "people2"></li>
-        <li class = "people3"></li>
+    <div id="root">
+      <section id = "home">
+        <img src="imagenes/logo-harry-potter-new.png" class = "img-principal"/>
+        <p class = "start" >
+          Hemos creado esta página para que conozcas más de los personajes. 
+          Ya que una tragedia ha asolado el mundo mágico y ha repartido Incontratus por el mundo muggle. 
+          Queremos que estés preparadx para defender a tus personajes favoritos.
+        <button href = "#" type = "button" class = "enter" id = "enter">INGRESAR</button>
+        </p>
+      </section>
+      <div id="principal" class= "principal hide">
+        <header id = "header" class = "header">
+        <img src = "imagenes/logo-harry.png" class = "logo">
+          <nav class ="menu"> 
+          <button type="button" id = "inicio" class = "opciones">INICIO</button>
+          <select class = "opciones" id ="opciones-filtro">
+            <option value=" ">FILTRAR POR</option>
+            <option value="casas">Casas</option>
+            <option value="varita">Varita</option>
+            <option value="patronus">Patronus</option>
+          </select>
+          <select class = "opciones">
+            <option value=" ">ORDENAR</option>
+            <option value="descendente">Descendente</option>
+            <option value="ascentente">Ascentente</option>
+          </select>
+          </nav>
+        </header>
+        <div id= "character" class = "hide">
+          <h2 class = "text-center" id = "title-character">h</h2>
+          <button type = "button" id = "atras">Atras</button>
+        <section id = "list-character">
+        </section>
       </div>
-
-     
+      <div id = "house" class = "house hide">
+        <h2 class = "text-center">TIPOS DE CASAS</h2>
+        <figure class="group">
+          <figure>
+            <img src="imagenes/casa gryffindor.jpg" href = "#" class = "img-house" id = "gryffindor">
+            <figcaption>CASA GRYFFINDOR</figcaption>
+          </figure> 
+          <figure>
+            <img src="imagenes/casa hufflepuff.jpg" href = "#" class = "img-house" id = "hufflepuff">
+            <figcaption>CASA HUFFLEPUFF</figcaption>
+          </figure>
+          <figure>
+            <img src="imagenes/casa slytherin.jpg" href = "#" class = "img-house" id = "slytherin">
+            <figcaption>CASA SLYTHERIN</figcaption>
+          </figure>
+          <figure>
+            <img src="imagenes/casa ravenclaw.jpg" href = "#" class = "img-house" id = "ravenclaw">
+            <figcaption>CASA RAVENCLAW</figcaption>
+          </figure>
+        </figure>
+      </div>
+      <div id = "varita" class = "varita hide">
+        <h2 class = "text-center">TIPOS DE VARITAS</h2>
+        <figure class="group">
+          <figure>
+            <img src="imagenes/dragonhearttring.png" href = "#"class = "img-varitas" id = "dragon">
+            <figcaption>VARITA DE DRAGON</figcaption>
+          </figure>
+          <figure>
+            <img src="imagenes/fenix.jpg" href = "#"class = "img-varitas" id = "fenix">
+            <figcaption>VARITA DE PLUMA DE FENIX</figcaption>
+          </figure>
+          <figure>
+            <img src="imagenes/unicornio.jpg"  href = "#"class = "img-varitas" id = "unicornio">
+            <figcaption>VARITA DE PELO DE UNICORNIO</figcaption>
+          </figure>
+        </figure> 
+      </div>
+      <div id = "patronus" class = "patronus hide">
+        <h2 class = "text-center">TIPOS DE PATRONUS</h2>
+        <figure class="group">
+          <figure>
+            <img src="imagenes/patronussalvaje.jpg" href = "#" class = "img-patronus" id = "salvajes">
+            <figcaption>PATRONUS SALVAJES</figcaption>
+          </figure>
+          <figure>
+            <img src="imagenes/patronusdomestico.jpg" href = "#" class = "img-patronus" id = "domesticos">
+            <figcaption>PATRONUS DOMESTICOS</figcaption>
+          </figure>
+        </figure> 
+      </div>
     </div>
     <script type = "module" src="main.js"></script>
     
