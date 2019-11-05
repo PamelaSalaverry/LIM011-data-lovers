@@ -1,10 +1,22 @@
 import POTTER from './data/potter/potter.js';
 /*console.log(POTTER);*/
 import {filterData, sortData} from './data.js';
+import potter from './data/potter/potter.js';
 console.log(filterData(POTTER, ""));
-console.log(sortData(POTTER, ""));
-//document.querySelector("#personajes-resumen").innerHTML = filterData(POTTER, "");
 
+const createAElement = mostrar => {
+  let tarjeta = '';
+  for (let i = 0; i < potter.length; i += 1) {
+    tarjeta += `<figure class="list-personajes">
+      <img class= 'potter-img' alt="imagen de potter" src="${mostrar[i].image}"/>
+      <figcaption class= 'text-name'>
+      <h1 class='potter-name'><strong>${mostrar[i].name}</strong></h1>
+      </figcaption>
+      </figure>`
+  }
+  document.querySelector('#list-character').innerHTML = tarjeta
+}
+createAElement(potter)
 const btnEnter = document.getElementById('enter');
 btnEnter.addEventListener('click', () => {
 document.getElementById('principal').classList.remove('hide');
@@ -16,6 +28,21 @@ btnInicio.addEventListener('click', () => {
 document.getElementById('home').classList.remove('hide'); 
 document.getElementById('principal').classList.add('hide');
 });
+
+const selectOpcion = document.querySelector('#opciones-ordenar');
+selectOpcion.addEventListener('change', (event) => {
+if (event.target.value === 'ascendente') {
+    document.getElementById('house').classList.remove('hide');
+    document.getElementById('character').classList.add('hide');
+    document.getElementById('varita').classList.add('hide');
+    document.getElementById('patronus').classList.add('hide');
+} else if (event.target.value === 'descendente') {
+    document.getElementById('varita').classList.remove('hide');
+    document.getElementById('character').classList.add('hide');
+    document.getElementById('house').classList.add('hide');
+    document.getElementById('patronus').classList.add('hide');
+}});
+
 const selectElement = document.querySelector('#opciones-filtro');
 selectElement.addEventListener('change', (event) => {
 if (event.target.value === 'casas') {
@@ -115,11 +142,26 @@ btnUnicornio.addEventListener('click', () => {
 document.getElementById('varita').classList.remove('hide');
 document.getElementById('varita-unicornio').classList.add('hide');
 });
-
-const btnSalbajes = document.getElementById('atras-salvajes');
-btnSalbajes.addEventListener('click', () => {
-document.getElementById('patronus').classList.remove('hide');
-document.getElementById('patronus-salvajes').classList.add('hide');
+const btnAtras = document.getElementById('atras');
+btnAtras.addEventListener('click', () => {
+const filtro = document.getElementById('opciones-filtro');
+const valorFiltro = filtro.options[filtro.selectedIndex].value;
+  if (valorFiltro === 'casas') {
+    document.getElementById('house').classList.remove('hide');
+    document.getElementById('character').classList.add('hide');
+    document.getElementById('varita').classList.add('hide');
+    document.getElementById('patronus').classList.add('hide');
+  } else if (valorFiltro === 'varita') {
+    document.getElementById('varita').classList.remove('hide');
+    document.getElementById('character').classList.add('hide');
+    document.getElementById('house').classList.add('hide');
+    document.getElementById('patronus').classList.add('hide');
+  } else if (valorFiltro === 'patronus') {
+    document.getElementById('patronus').classList.remove('hide');
+    document.getElementById('character').classList.add('hide');
+    document.getElementById('house').classList.add('hide');
+    document.getElementById('varita').classList.add('hide');
+  }
 });
 const btnDomesticos = document.getElementById('atras-domesticos');
 btnDomesticos.addEventListener('click', () => {

@@ -9,6 +9,7 @@
   </head>
   <body> 
     <div id="root">
+      <!-- Primera pantalla Presentación -->
       <section id = "home">
         <img src="imagenes/logo-harry-potter-new.png" class = "img-principal"/>
         <p class = "start" >
@@ -18,28 +19,31 @@
         <button href = "#" type = "button" class = "enter" id = "enter">INGRESAR</button>
         </p>
       </section>
+      <!-- Pantalla principal -->
       <div id="principal" class= "principal hide">
         <header id = "header" class = "header">
         <img src = "imagenes/logo-harry.png" class = "logo">
           <nav class ="menu"> 
           <button type="button" id = "inicio" class = "opciones">INICIO</button>
+          <!-- Filtro principal -->
           <select class = "opciones" id ="opciones-filtro">
             <option value=" ">FILTRAR POR</option>
             <option value="casas">Casas</option>
             <option value="varita">Varita</option>
             <option value="patronus">Patronus</option>
           </select>
-          <select class = "opciones">
+          <!-- Ascendente y descendente -->
+          <select class = "opciones" id = "opciones-ordenar">
             <option value=" ">ORDENAR</option>
-            <option value="descendente">Descendente</option>
-            <option value="ascentente">Ascentente</option>
+            <option value="ascendente">A - Z</option>
+            <option value="descendente">Z - A</option>
           </select>
           </nav>
         </header>
         <div id= "character" class = "hide">
-          <h2 class = "text-center" id = "title-character">h</h2>
+          <h2 class = "text-center" id = "title-character"></h2>
           <button type = "button" id = "atras">Atras</button>
-        <section id = "list-character" class= "list-character">
+        <section id = "list-character" class ="list-character">
         </section>
       </div>
       <div id = "house" class = "house hide">

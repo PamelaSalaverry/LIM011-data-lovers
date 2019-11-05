@@ -1,6 +1,7 @@
 body{
     background-image: url(imagenes/storm-clouds.png);
     background-repeat: no-repeat;
+    background-repeat: repeat-y ;
     background-size: 100%;
 }
 .img-principal{
@@ -108,4 +109,23 @@ figure.group figure {
 } 
 .text-center {
     text-align: center;
+}
+.list-character{
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    width: 100%;
+}
+.list-personajes {
+    width: 150px;
+    height: 280px;
+    margin: 0 20px;
+}
+.potter-img{
+    width: 150px;
+    height: 200px;
+    margin:  0 20px;
 }
