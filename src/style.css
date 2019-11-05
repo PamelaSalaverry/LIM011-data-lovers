@@ -11,10 +11,6 @@ body{
     display:flex;
     justify-content: center;
 }
-.img-principal img {
-    width: 100%;
-}
-
 .start{
     margin: 50px auto;
     color: white;

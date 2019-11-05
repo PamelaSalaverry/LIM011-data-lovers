@@ -1,11 +1,9 @@
 import POTTER from './data/potter/potter.js';
 /*console.log(POTTER);*/
 import {filterData, sortData} from './data.js';
-import potter from './data/potter/potter.js';
 console.log(filterData(POTTER, ""));
 console.log(sortData(POTTER, ""));
 //document.querySelector("#personajes-resumen").innerHTML = filterData(POTTER, "");
-const personajes = potter.innerHTML;
 
 const btnEnter = document.getElementById('enter');
 btnEnter.addEventListener('click', () => {
@@ -41,6 +39,7 @@ const imgGryffindor = document.getElementById('gryffindor');
 imgGryffindor.addEventListener('click', () => {
 document.getElementById('casas-gryffindor').classList.remove('hide');
 document.getElementById('house').classList.add('hide');
+});
 const imgHufflepuff = document.getElementById('hufflepuff');
 imgHufflepuff.addEventListener('click', () => {
 document.getElementById('casas-hufflepuff').classList.remove('hide');
@@ -109,21 +108,21 @@ document.getElementById('varita-dragon').classList.add('hide');
 const btnFenix = document.getElementById('atras-fenix');
 btnFenix.addEventListener('click', () => {
 document.getElementById('varita').classList.remove('hide');
-  document.getElementById('varita-fenix').classList.add('hide');
+document.getElementById('varita-fenix').classList.add('hide');
 });
 const btnUnicornio = document.getElementById('atras-unicornio');
 btnUnicornio.addEventListener('click', () => {
-  document.getElementById('varita').classList.remove('hide');
-  document.getElementById('varita-unicornio').classList.add('hide');
+document.getElementById('varita').classList.remove('hide');
+document.getElementById('varita-unicornio').classList.add('hide');
 });
 
 const btnSalbajes = document.getElementById('atras-salvajes');
 btnSalbajes.addEventListener('click', () => {
-  document.getElementById('patronus').classList.remove('hide');
-  document.getElementById('patronus-salvajes').classList.add('hide');
+document.getElementById('patronus').classList.remove('hide');
+document.getElementById('patronus-salvajes').classList.add('hide');
 });
 const btnDomesticos = document.getElementById('atras-domesticos');
 btnDomesticos.addEventListener('click', () => {
-  document.getElementById('patronus').classList.remove('hide');
-  document.getElementById('patronus-domesticos').classList.add('hide');
+document.getElementById('patronus').classList.remove('hide');
+document.getElementById('patronus-domesticos').classList.add('hide');
 });
