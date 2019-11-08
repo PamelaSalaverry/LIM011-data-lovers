@@ -1,9 +1,6 @@
-import POTTER from './data/potter/potter.js';
-/*console.log(POTTER);*/
 import {filterData, sortData} from './data.js';
 import potter from './data/potter/potter.js';
-console.log(filterData(POTTER, ""));
-
+// Función que imprime
 const createAElement = mostrar => {
   let tarjeta = '';
   for (let i = 0; i < potter.length; i += 1) {
@@ -16,32 +13,31 @@ const createAElement = mostrar => {
   }
   document.querySelector('#list-character').innerHTML = tarjeta
 }
-createAElement(potter)
+// Entro a la página principal-Veo todos los personajes
 const btnEnter = document.getElementById('enter');
 btnEnter.addEventListener('click', () => {
-document.getElementById('principal').classList.remove('hide');
-document.getElementById('character').classList.remove('hide');
-document.getElementById('home').classList.add('hide');
+  createAElement(filterData(potter));
+  document.getElementById('principal').classList.remove('hide');
+  document.getElementById('home').classList.add('hide');
 });
+// Botón que regresa a la primera pantalla
 const btnInicio = document.getElementById('inicio');
 btnInicio.addEventListener('click', () => {
 document.getElementById('home').classList.remove('hide'); 
 document.getElementById('principal').classList.add('hide');
 });
-
+// Ordena alfabeticamente
 const selectOpcion = document.querySelector('#opciones-ordenar');
 selectOpcion.addEventListener('change', (event) => {
-if (event.target.value === 'ascendente') {
-    document.getElementById('house').classList.remove('hide');
-    document.getElementById('character').classList.add('hide');
-    document.getElementById('varita').classList.add('hide');
-    document.getElementById('patronus').classList.add('hide');
-} else if (event.target.value === 'descendente') {
+  if (event.target.value === 'ascendente') {
+    createAElement(sortData(potter));
+    createAElement(filterData(potter)).style.display = 'none';
+  } else if (event.target.value === 'descendente') {
     document.getElementById('varita').classList.remove('hide');
     document.getElementById('character').classList.add('hide');
     document.getElementById('house').classList.add('hide');
     document.getElementById('patronus').classList.add('hide');
-}});
+  }});
 
 const selectElement = document.querySelector('#opciones-filtro');
 selectElement.addEventListener('change', (event) => {
@@ -62,6 +58,7 @@ if (event.target.value === 'casas') {
     document.getElementById('varita').classList.add('hide');
 }
 });
+// Filtra por casas
 const imgGryffindor = document.getElementById('gryffindor');
 imgGryffindor.addEventListener('click', () => {
 document.getElementById('casas-gryffindor').classList.remove('hide');
@@ -82,6 +79,7 @@ imgRavenclaw.addEventListener('click', () => {
 document.getElementById('casas-ravenclaw').classList.remove('hide');
 document.getElementById('house').classList.add('hide');
 });
+// Filtra por núcleo de varita
 const imgDragon = document.getElementById('dragon');
 imgDragon.addEventListener('click', () => {
 document.getElementById('varita-dragon').classList.remove('hide');
@@ -97,6 +95,7 @@ imgUnicornio.addEventListener('click', () => {
 document.getElementById('varita-unicornio').classList.remove('hide');
 document.getElementById('varita').classList.add('hide');
 });
+// Filtra por tipo de Patronus
 const imgsalvajes = document.getElementById('salvajes');
 imgsalvajes.addEventListener('click', () => {
 document.getElementById('patronus-salvajes').classList.remove('hide');
