@@ -1,5 +1,8 @@
 /* Manejo de data */
-// esta es una función de ejemplo
+// esta es una función ade ejemplo
+//example condition: {field: house, value: Gryffindor} HOUSES
+//example condition: {field: patronus, value: ['aaa', 'stag']}  PATRONUS
+//example condition: {field: ['wand', 'core'], value: ['aaa', 'stag']}  WAND
 const filterData = (data, condition) => {
   let personajesFiltrados = [];
   if (condition === null) {
@@ -48,4 +51,5 @@ const sortData = (data, sortOrder) => {
     });
   }
 };
+
 export { filterData, sortData };
