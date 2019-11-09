@@ -5,11 +5,13 @@
 //example condition: {field: ['wand', 'core'], value: ['aaa', 'stag']}  WAND
 const filterData = (data, condition) => {
   let personajesFiltrados = [];
+  // Buscar por qué solo funciona null
   if (condition === null) {
     personajesFiltrados = data;
   } else {
     personajesFiltrados = data.filter((personaje) => {
       let campoAFiltrar;
+      // Verifica si es un array
       if (Array.isArray(condition.field)) {
         campoAFiltrar = personaje[condition.field[0]][condition.field[1]];
       } else {
@@ -28,6 +30,7 @@ const filterData = (data, condition) => {
     });
   }
   return personajesFiltrados;
+  // retorna array de objetos 
 };
 const sortData = (data, sortOrder) => {
   if (sortOrder === 'ascendente') {
@@ -51,5 +54,4 @@ const sortData = (data, sortOrder) => {
     });
   }
 };
-
 export { filterData, sortData };

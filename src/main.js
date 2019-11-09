@@ -13,7 +13,7 @@ const createAElement = (mostrar) => {
   }
   document.querySelector('#list-character').innerHTML = tarjeta;
 };
-
+// Imprime personajes
 const btnEnter = document.getElementById('enter');
 btnEnter.addEventListener('click', () => {
   createAElement(filterData(POTTER, null));
