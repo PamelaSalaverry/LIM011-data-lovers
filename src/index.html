@@ -10,7 +10,7 @@
   <body> 
     <div id="root">
       <!-- Primera pantalla Presentación -->
-      <section id = "home">
+      <section id = about>
         <img src="imagenes/logo-harry-potter-new.png" class = "img-principal"/>
         <p class = "start" >
           Hemos creado esta página para que conozcas más de los personajes. 
@@ -21,35 +21,37 @@
       </section>
       <!-- Pantalla principal -->
       <div id="principal" class= "principal hide">
+        <!-- Barra menú -->
         <header id = "header" class = "header">
-        <img src = "imagenes/logo-harry.png" class = "logo">
+          <img src = "imagenes/logo-blanco.png" class = "logo">
           <nav class ="menu"> 
-          <button type="button" id = "inicio" class = "opciones">INICIO</button>
-          <!-- Filtro principal -->
-          <select class = "opciones" id ="opciones-filtro">
-            <option value=" ">FILTRAR POR</option>
-            <option value="casas">Casas</option>
-            <option value="varita">Varita</option>
-            <option value="patronus">Patronus</option>
-          </select>
-          <!-- Ascendente y descendente -->
-          <select class = "opciones" id = "opciones-ordenar">
-            <option value=" ">ORDENAR</option>
-            <option value="ascendente">A - Z</option>
-            <option value="descendente">Z - A</option>
-          </select>
+            <button type="button" id = "btn-about" class = "opciones">ACERCA DE</button>
+            <button type="button" id = "btn-home" class = "opciones">INICIO</button>
+            <!-- Filtro principal -->
+            <select id ="opciones-filtro" class = "opciones">
+              <option value="">FILTRAR POR</option>
+              <option value="casas">Casas</option>
+              <option value="varita">Varita</option>
+              <option value="patronus">Patronus</option>
+            </select>
+            <!-- Ascendente y descendente -->
+            <select id = "opciones-ordenar" class = "opciones">
+              <option value="">ORDENAR</option>
+              <option value="ascendente">A - Z</option>
+              <option value="descendente">Z - A</option>
+            </select>
           </nav>
         </header>
+        <!-- Personajes -->
         <div id= "character">
           <h2 class = "text-center" id = "title-character"></h2>
           <button type = "button" id = "atras">Atras</button>
-        <section id = "list-character" class = "list-character">
-        </section>
-      </div>
-      <div id="miModal" class="modal">
+          <section id = "list-character" class = "list-character">
+          </section>
+        </div>
+        <div id="miModal" class="modal">
           <div class="modal-contenido" id="modal-contenido">
             <a href="#">X</a>
-
             <img class= 'potter-img' id = "personajeImagen"/>
             <h3 class='datos'>Nombre: <span id="personajeNombre"></span></h3>
             <h3 class='datos'>Genero: <span id="personajeGenero"></span></h3>
@@ -58,6 +60,8 @@
             <h3 class='datos'>Actor: <span id="personajeActor"></span></h3>
           </div>  
         </div>
+      </div>
+      <!-- Pantalla casas -->
       <div id = "house" class = "house hide">
         <h2 class = "text-center">TIPOS DE CASAS</h2>
         <figure class="group">
@@ -79,6 +83,7 @@
           </figure>
         </figure>
       </div>
+      <!-- Pantala varitas -->
       <div id = "varita" class = "varita hide">
         <h2 class = "text-center">TIPOS DE VARITAS</h2>
         <figure class="group">
@@ -96,15 +101,16 @@
           </figure>
         </figure> 
       </div>
+      <!-- Pantalla patronus -->
       <div id = "patronus" class = "patronus hide">
         <h2 class = "text-center">TIPOS DE PATRONUS</h2>
         <figure class="group">
           <figure>
-            <img src="imagenes/patronussalvaje.jpg" href = "#" class = "img-patronus" id = "salvajes">
+            <img src="imagenes/patronus-salvaje.jpg" href = "#" class = "img-patronus" id = "salvajes">
             <figcaption>PATRONUS SALVAJES</figcaption>
           </figure>
           <figure>
-            <img src="imagenes/patronusdomestico.jpg" href = "#" class = "img-patronus" id = "domesticos">
+            <img src="imagenes/patronus-domestico.jpg" href = "#" class = "img-patronus" id = "domesticos">
             <figcaption>PATRONUS DOMESTICOS</figcaption>
           </figure>
         </figure> 

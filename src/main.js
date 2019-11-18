@@ -1,37 +1,57 @@
 import POTTER from './data/potter/potter.js';
 import { filterData, sortData } from './data.js';
-
+// Función que imprime imagen y nombre del personaje
 const createAElement = (mostrar) => {
   let tarjeta = '';
   for (let i = 0; i < mostrar.length; i += 1) {
     tarjeta += `<figure class="list-personajes">
     <img class= 'potter-img' alt="imagen de potter" src="${mostrar[i].image}"/>
     <figcaption class= 'text-name'>
-    <h1 class='potter-name'><strong>${mostrar[i].name}</strong></h1>
+    <h3 class='potter-name'><strong>${mostrar[i].name}</strong></h3>
+    <a href="#miModal" class="linkModal" data-image="${mostrar[i].image}" data-name="${mostrar[i].name}"
+    data-gender="${mostrar[i].gender}"data-house="${mostrar[i].house}"
+    data-patronus="${mostrar[i].patronus}"data-actor="${mostrar[i].actor}">Ver más</a>
     </figcaption>
-    </figure>`
+    </figure>`;
   }
   document.querySelector('#list-character').innerHTML = tarjeta;
+// MODAL
+  let elementsArray = document.querySelectorAll(".linkModal");
+  elementsArray.forEach(function(elem) {
+      elem.addEventListener("click", function() {
+        document.getElementById('personajeImagen').src = elem.dataset.image;
+        document.getElementById('personajeNombre').innerHTML = elem.dataset.name;
+        document.getElementById('personajeGenero').innerHTML = elem.dataset.gender;
+        document.getElementById('personajeCasa').innerHTML = elem.dataset.house;
+        document.getElementById('personajePatronus').innerHTML = elem.dataset.patronus;
+        document.getElementById('personajeActor').innerHTML = elem.dataset.actor;
+      });
+  });
 };
 // Imprime personajes
 const btnEnter = document.getElementById('enter');
 btnEnter.addEventListener('click', () => {
   createAElement(filterData(POTTER, null));
   document.getElementById('principal').classList.remove('hide');
-  document.getElementById('home').classList.add('hide');
+  document.getElementById('about').classList.add('hide');
 });
 // Botón que regresa a la primera pantalla
-const btnInicio = document.getElementById('inicio');
+const btnInicio = document.getElementById('btn-about');
 btnInicio.addEventListener('click', () => {
-document.getElementById('home').classList.remove('hide'); 
+document.getElementById('about').classList.remove('hide'); 
 document.getElementById('principal').classList.add('hide');
+});
+// Botón Home 
+const btnHome = document.getElementById('btn-home');
+btnHome.addEventListener('click', () => {
+  createAElement(filterData(POTTER, null))
 });
 // Ordena alfabeticamente
 const selectOpcion = document.querySelector('#opciones-ordenar');
 selectOpcion.addEventListener('change', (event) => {
   createAElement(sortData(POTTER, event.target.value));
 });
-
+// Pantallas de casa, varita y patronus
 const selectElement = document.querySelector('#opciones-filtro');
 selectElement.addEventListener('change', (event) => {
 if (event.target.value === 'casas') {
@@ -59,7 +79,6 @@ imgGryffindor.addEventListener('click', () => {
   document.getElementById('title-character').innerHTML = 'Personajes de la Casa Gryffindor';
   createAElement(filterData(POTTER, { field: 'house', value: 'Gryffindor' }));
 });
-
 const imgHufflepuff = document.getElementById('hufflepuff');
 imgHufflepuff.addEventListener('click', () => {
   document.getElementById('character').classList.remove('hide');
@@ -139,8 +158,8 @@ btnAtras.addEventListener('click', () => {
     document.getElementById('varita').classList.add('hide');
   }
 });
-const btnDomesticos = document.getElementById('atras-domesticos');
+const btnDomesticos = document.getElementById('domesticos');
 btnDomesticos.addEventListener('click', () => {
 document.getElementById('patronus').classList.remove('hide');
-document.getElementById('patronus-domesticos').classList.add('hide');
+document.getElementById('domesticos').classList.add('hide');
 });
