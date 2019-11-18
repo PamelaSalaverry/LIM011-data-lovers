@@ -12,18 +12,16 @@ const filterData = (data, condition) => {
         campoAFiltrar = personaje[condition.field[0]][condition.field[1]];
       } else {
         campoAFiltrar = personaje[condition.field];
-      } 
+      }
       if (Array.isArray(condition.value)) {
         if (condition.value.includes(campoAFiltrar)) {
           return true;
-        } else {
-          return false;
         }
-      } if (campoAFiltrar === condition.value) {
-        return true;
-      } else {
-        return false;
       }
+      if (campoAFiltrar === condition.value) {
+        return true;
+      }
+      return false;
     });
   }
   return personajesFiltrados;
@@ -50,5 +48,6 @@ const sortData = (data, sortOrder) => {
       return 0;
     });
   }
+  return data;
 };
 export { filterData, sortData };
