@@ -25,8 +25,8 @@ const filterData = (data, condition) => {
     });
   }
   return personajesFiltrados;
-  // retorna array de objetos 
 };
+// retorna array de objetos
 const sortData = (data, sortOrder) => {
   if (sortOrder === 'ascendente') {
     return data.sort((a, b) => {

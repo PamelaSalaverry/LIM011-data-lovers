@@ -9,7 +9,7 @@ const createAElement = (actores) => {
     <img class= 'potter-img' alt="imagen de potter" src="${actores[i].image}"/>
     <figcaption class= 'text-name'>
     <h3 class='potter-name'><strong>${actores[i].name}</strong></h3>
-    <a href="#miModal" class="linkModal" data-image="${actores[i].image}" data-name="${actores[i].name}"
+    <a href="#miModal" class="linkModal" data-image="${actores[i].image}"data-name="${actores[i].name}"
     data-gender="${actores[i].gender}"data-species="${actores[i].species}"data-house="${actores[i].house}"
     data-patronus="${actores[i].patronus}"data-wand="${actores[i].wand.core}"data-actor="${actores[i].actor}">+ info</a>
     </figcaption>
@@ -49,11 +49,6 @@ btnInicio.addEventListener('click', () => {
   document.getElementById('varita').classList.add('hide');
   document.getElementById('patronus').classList.add('hide');
 });
-// Botón Home 
-const btnHome = document.getElementById('btn-home');
-btnHome.addEventListener('click', () => {
-  createAElement(filterData(POTTER, null))
-});
 // Ordena alfabeticamente
 const selectOpcion = document.querySelector('#opciones-ordenar');
 selectOpcion.addEventListener('change', (event) => {
@@ -62,22 +57,22 @@ selectOpcion.addEventListener('change', (event) => {
 // Pantallas de casa, varita y patronus
 const selectElement = document.querySelector('#opciones-filtro');
 selectElement.addEventListener('change', (event) => {
-if (event.target.value === 'casas') {
+  if (event.target.value === 'casas') {
     document.getElementById('house').classList.remove('hide');
     document.getElementById('character').classList.add('hide');
     document.getElementById('varita').classList.add('hide');
     document.getElementById('patronus').classList.add('hide');
-} else if (event.target.value === 'varita') {
+  } else if (event.target.value === 'varita') {
     document.getElementById('varita').classList.remove('hide');
     document.getElementById('character').classList.add('hide');
     document.getElementById('house').classList.add('hide');
     document.getElementById('patronus').classList.add('hide');
-} else if (event.target.value === 'patronus') {
+  } else if (event.target.value === 'patronus') {
     document.getElementById('patronus').classList.remove('hide');
     document.getElementById('character').classList.add('hide');
     document.getElementById('house').classList.add('hide');
     document.getElementById('varita').classList.add('hide');
-}
+  }
 });
 // Filtra por casas
 const imgGryffindor = document.getElementById('gryffindor');
@@ -174,9 +169,4 @@ btnAtras.addEventListener('click', () => {
     document.getElementById('house').classList.add('hide');
     document.getElementById('varita').classList.add('hide');
   }
-});
-const btnDomesticos = document.getElementById('domesticos');
-btnDomesticos.addEventListener('click', () => {
-document.getElementById('patronus').classList.remove('hide');
-document.getElementById('domesticos').classList.add('hide');
 });
