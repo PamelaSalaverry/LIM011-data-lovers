@@ -27,6 +27,7 @@ const createAElement = (actores) => {
       document.getElementById('personajePatronus').innerHTML = elem.dataset.patronus;
       document.getElementById('personajeVarita').innerHTML = elem.dataset.wand;
       document.getElementById('personajeActor').innerHTML = elem.dataset.actor;
+      document.getElementById('personajeVarita').innerHTML = elem.dataset.wand;
     });
   });
 };
@@ -34,20 +35,14 @@ const btnEnter = document.getElementById('enter');
 btnEnter.addEventListener('click', () => {
   personajes = filterData(POTTER, null);
   createAElement(personajes);
-  document.getElementById('title-character').innerHTML = 'Conoce de tus Personajes';
+  document.getElementById('title-character').innerHTML = 'Conoce a los Personajes';
   document.getElementById('principal').classList.remove('hide');
   document.getElementById('about').classList.add('hide');
 });
-// Botón que regresa a la primera pantalla
-const btnInicio = document.getElementById('btn-about');
-btnInicio.addEventListener('click', () => {
-  personajes = filterData(POTTER, null);
-  createAElement(personajes);
-  document.getElementById('title-character').innerHTML = 'Conoce de tus Personajes';
-  document.getElementById('principal').classList.remove('hide');
-  document.getElementById('house').classList.add('hide');
-  document.getElementById('varita').classList.add('hide');
-  document.getElementById('patronus').classList.add('hide');
+const imgLogo = document.getElementById('logo');
+imgLogo.addEventListener('click', () => {
+  document.getElementById('principal').classList.add('hide');
+  document.getElementById('about').classList.remove('hide');
 });
 // Ordena alfabeticamente
 const selectOpcion = document.querySelector('#opciones-ordenar');
@@ -62,16 +57,25 @@ selectElement.addEventListener('change', (event) => {
     document.getElementById('character').classList.add('hide');
     document.getElementById('varita').classList.add('hide');
     document.getElementById('patronus').classList.add('hide');
+    document.getElementById('profesion').classList.add('hide');
   } else if (event.target.value === 'varita') {
     document.getElementById('varita').classList.remove('hide');
     document.getElementById('character').classList.add('hide');
     document.getElementById('house').classList.add('hide');
     document.getElementById('patronus').classList.add('hide');
+    document.getElementById('profesion').classList.add('hide');
   } else if (event.target.value === 'patronus') {
     document.getElementById('patronus').classList.remove('hide');
     document.getElementById('character').classList.add('hide');
     document.getElementById('house').classList.add('hide');
     document.getElementById('varita').classList.add('hide');
+    document.getElementById('profesion').classList.add('hide');
+  } else if (event.target.value === 'profesion') {
+    document.getElementById('profesion').classList.remove('hide');
+    document.getElementById('character').classList.add('hide');
+    document.getElementById('house').classList.add('hide');
+    document.getElementById('varita').classList.add('hide');
+    document.getElementById('patronus').classList.add('hide');
   }
 });
 // Filtra por casas
@@ -149,6 +153,24 @@ imgDomesticos.addEventListener('click', () => {
   personajes = filterData(POTTER, { field: 'patronus', value: ['Jack Russell terrier', 'tabby cat', 'persian cat', 'horse'] });
   createAElement(personajes);
 });
+// Filtra por staff
+const imgMaestro = document.getElementById('maestro');
+imgMaestro.addEventListener('click', () => {
+  document.getElementById('character').classList.remove('hide');
+  document.getElementById('profesion').classList.add('hide');
+  document.getElementById('title-character').innerHTML = 'Personajes que son Maestros';
+  personajes = filterData(POTTER, { field: 'hogwartsStaff', value: true });
+  createAElement(personajes);
+});
+const imgEstudiante = document.getElementById('estudiante');
+imgEstudiante.addEventListener('click', () => {
+  document.getElementById('character').classList.remove('hide');
+  document.getElementById('profesion').classList.add('hide');
+  document.getElementById('title-character').innerHTML = 'Personajes que son Estudiantes';
+  personajes = filterData(POTTER, { field: 'hogwartsStudent', value: true });
+  createAElement(personajes);
+});
+// Botón retroceder
 const btnAtras = document.getElementById('atras');
 btnAtras.addEventListener('click', () => {
   const filtro = document.getElementById('opciones-filtro');
@@ -158,15 +180,24 @@ btnAtras.addEventListener('click', () => {
     document.getElementById('character').classList.add('hide');
     document.getElementById('varita').classList.add('hide');
     document.getElementById('patronus').classList.add('hide');
+    document.getElementById('profesion').classList.add('hide');
   } else if (valorFiltro === 'varita') {
     document.getElementById('varita').classList.remove('hide');
     document.getElementById('character').classList.add('hide');
     document.getElementById('house').classList.add('hide');
     document.getElementById('patronus').classList.add('hide');
+    document.getElementById('profesion').classList.add('hide');
   } else if (valorFiltro === 'patronus') {
     document.getElementById('patronus').classList.remove('hide');
     document.getElementById('character').classList.add('hide');
     document.getElementById('house').classList.add('hide');
     document.getElementById('varita').classList.add('hide');
+    document.getElementById('profesion').classList.add('hide');
+  } else if (valorFiltro === 'profesion') {
+    document.getElementById('profesion').classList.remove('hide');
+    document.getElementById('character').classList.add('hide');
+    document.getElementById('house').classList.add('hide');
+    document.getElementById('varita').classList.add('hide');
+    document.getElementById('patronus').classList.add('hide');
   }
 });

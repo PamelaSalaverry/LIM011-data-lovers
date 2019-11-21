@@ -92,25 +92,27 @@ const prueba = [
     image: 'http://hp-api.herokuapp.com/images/ron.jpg',
   },
 ];
-
-// Test sortData - ordena alfabeticamente
+// Test sortData - ordena alfabéticamente
 describe('sortData', () => {
   it('debería ser una función', () => {
     expect(typeof sortData).toBe('function');
   });
-  it('debería orden por default', () => {
+  it('debería ordenar por default', () => {
     expect(sortData(POTTER, ' ')[0].name).toBe('Harry Potter');
   });
-  it('debería retornar data a-z', () => {
+  it('debería retornar nombres de a-z', () => {
     expect(sortData(POTTER, 'ascendente')[0].name).toBe('Argus Filch');
   });
-  it('debería retornar data z-a', () => {
+  it('debería retornar nombres z-a', () => {
     expect(sortData(POTTER, 'descendente')[0].name).toBe('Vincent Crabbe');
   });
-  it('debería retornar Harry Potter', () => {
+  it('debería retornar nombres z-a cuando la lista está filtrada', () => {
+    expect(sortData(POTTER, 'descendente')[0].name).toBe('Vincent Crabbe');
+  });
+  it('debería retornar prueba a-z', () => {
     expect(sortData(prueba, 'ascendente')[0].name).toBe('Harry Potter');
   });
-  it('debería retornar Ron Weasley', () => {
+  it('debería retornar prueba z-a', () => {
     expect(sortData(prueba, 'descendente')[0].name).toBe('Ron Weasley');
   });
 });

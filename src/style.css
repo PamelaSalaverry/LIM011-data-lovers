@@ -7,10 +7,13 @@ a {
     text-decoration: none;
     display: block;
     color: white;
+    font-weight: bold;
+    font-size: 0.9em;
 }
 a:hover{
     color: #FECC20;
     font-weight: bold;
+    font-size: 1em;
 }
 body {
     background: gray;
@@ -31,22 +34,23 @@ body {
 .about {
     width: 90%;
     max-width: 50rem;
-    margin: 0 auto;
+    margin: auto;
 }
 .img-principal {
     width: 100%;
     max-width: 31.25rem;
-    margin: 5% auto;
+    margin: 2% auto;
     display:flex;
     justify-content: center;
 }
 .text-about {
     width: 80%;
+    max-width: 50rem;
     padding: 2.5%;
     color: white;
     border-radius: 1.2em;
     background-color: rgb(0, 0, 0, 0.5);
-    margin: 0 auto;
+    margin: 5% auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -71,28 +75,28 @@ body {
 /* Pantalla principal - INICIO */
 .header{
     position: fixed;
-    z-index: 1;
-    background:black; 
-    height: 150px;
+    z-index: 10;
+    background:black;
     padding: 0;
     display: flex;
-    
+    width: 100%;
 }
 img.logo{
-    width: 10%;
-    min-width: 100px;
-    padding: 20px 80px 10px 0;
+    width: 100%;
+    max-width: 7rem;
+    padding: 1%
 }
 .menu{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    text-align: center;    
+    flex-wrap: wrap;   
 }
 .opciones{
     width: 150px;
+    min-width: 50px;
     height: 38px;
+    min-height: 25px;
     margin: 0 40px 0;
 }
 h1{
@@ -135,7 +139,7 @@ figure.group figure {
     height: 200px;
     margin: 20px;
     border-radius: 20px;
-    
+    border: 10px solid #E5E5E5;
 }
 .varita figure.group {
     display: flex;
@@ -151,6 +155,7 @@ figure.group figure {
     height: 200px;
     margin: 20px;
     border-radius: 20px;
+    border: 10px solid #E5E5E5;
 }
 .patronus figure.group {
     display: flex;
@@ -166,16 +171,34 @@ figure.group figure {
     height: 200px;
     margin: 20px;
     border-radius: 20px;
+    border: 10px solid #E5E5E5;
+} 
+.profesion figure.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 200px 0;
+}
+.img-profesion{
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 20px;
+    border: 10px solid #E5E5E5;
 } 
 .text-center {
     text-align: center;
+    color:#f8d562;
+    font-size: 40px;
 }
 .list-character{
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
-    
 }
 .list-personajes {
     display: inline-block;
@@ -185,9 +208,18 @@ figure.group figure {
     background: grey;
     width: 200px;
     height: 300px;
-    margin: 10px 20px;
+    margin: 10px 30px;
     border-radius: 20px;
     padding: 10px 10px;
+}
+.potter-name{
+    font-family: 'Trade Winds', cursive;
+}
+.text-name{
+    color:#072450;
+}
+a{
+    color: #fecc20;
 }
 .character{
     padding: 200px 0;
@@ -197,6 +229,7 @@ figure.group figure {
     height: 200px;
     margin:  10px 20px;
     border-radius: 20px;
+    border: 4px solid #C0C0C0;
 }
 .modal-contenido{
     background-color: #28344e;
@@ -209,6 +242,10 @@ figure.group figure {
     flex-direction: column;
     align-items: center;
     border-radius: 30px;
+    border: 10px solid #fecc20;
+    color: #C0C0C0;
+    font-size: 16px;
+    font-family: 'BenchNine', sans-serif;
 }
 .modal{
     display: flex;
@@ -224,14 +261,31 @@ figure.group figure {
 #miModal:target{
     opacity:1;
     pointer-events:auto;
+    z-index: 3;
 }
 .close{
     display: flex;
-    align-self: flex-start;
+    align-self: flex-end;
     font-size: xx-large;
     color: white;
 }
 h3{
     margin: 5px;
     padding: 0;
+}
+.atras{
+    width: 100%;
+    max-width: 50px;
+    position: fixed;
+    padding-left: 5%;
+    
+}
+#personajeImagen{
+    width: 180px;
+    height: 200px;
+    margin:  10px 20px;
+    border-radius: 20px;
+    border: 8px solid #C0C0C0;
+    display: flex;
+    align-items: flex-start;
 }

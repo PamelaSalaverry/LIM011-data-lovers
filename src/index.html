@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Bigelow+Rules|Open+Sans+Condensed:300,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   </head>
   <body> 
     <div id="root">
@@ -24,9 +25,8 @@
       <div id="principal" class= "principal hide">
         <!-- Barra menú -->
         <header id = "header" class = "header">
-          <img src = "imagenes/logo-blanco.png" class = "logo">
-          <nav class ="menu"> 
-            <button type="button" id = "btn-about" class = "opciones">ACERCA DE</button>
+          <img src = "imagenes/logo-blanco.png" id="logo" class = "logo">
+          <nav class ="menu">
             <button type="button" id = "btn-home" class = "opciones">INICIO</button>
             <!-- Filtro principal -->
             <select id ="opciones-filtro" class = "opciones">
@@ -46,14 +46,14 @@
         <!-- Personajes -->
         <div id= "character" class = "character">
           <h2 class = "text-center" id = "title-character"></h2>
-          <button type = "button" id = "atras">Atras</button>
-          <section id = "list-character" class = "list-character">
-          </section>
-        </div>
-        <div id="miModal" class="modal">
+          <img id = "atras" class = "atras" src="imagenes/left-arrow.png">
+        <section id = "list-character" class = "list-character">
+        </section>
+      </div>
+      <div id="miModal" class="modal">
           <div class="modal-contenido" id="modal-contenido">
             <a href="#" class = "close">X</a><br>
-            <img class= "potter-img" id = "personajeImagen"/>
+            <img class= "potter-img" id = "personajeImagen">
             <h3 class="datos">Nombre: <span id="personajeNombre"></span></h3>
             <h3 class="datos">Genero: <span id="personajeGenero"></span></h3>
             <h3 class="datos">Especie: <span id="personajeEspecie"></span></h3>
@@ -115,6 +115,20 @@
           <figure>
             <img src="imagenes/patronus-domestico.jpg" href = "#" class = "img-patronus" id = "domesticos">
             <figcaption>PATRONUS DOMESTICOS</figcaption>
+          </figure>
+        </figure> 
+      </div>
+      <!-- Pantalla staff -->
+      <div id = "profesion" class = "profesion hide">
+        <h2 class = "text-center">TIPOS DE PROFESIÓN</h2>
+        <figure class="group">
+          <figure>
+            <img src="imagenes/profesor.jpg" href = "#" class = "img-profesion" id = "maestro">
+            <figcaption>MAESTROS</figcaption>
+          </figure>
+          <figure>
+            <img src="imagenes/alumnos.jpg" href = "#" class = "img-profesion" id = "estudiante">
+            <figcaption>ESTUDIANTES</figcaption>
           </figure>
         </figure> 
       </div>
