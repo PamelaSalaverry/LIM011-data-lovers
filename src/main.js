@@ -142,7 +142,7 @@ imgsalvajes.addEventListener('click', () => {
   document.getElementById('character').classList.remove('hide');
   document.getElementById('patronus').classList.add('hide');
   document.getElementById('title-character').innerHTML = 'Personajes con Patronus Salvajes';
-  personajes = filterData(POTTER, { field: 'patronus', value: ['stag', 'otter', 'swan', 'doe', 'hare', 'hare', 'wolf', 'weasel', 'cedar', 'lynx'] });
+  personajes = filterData(POTTER, { field: 'patronus', value: ['stag', 'otter', 'swan', 'doe', 'hare', 'hare', 'wolf', 'weasel', 'lynx'] });
   createAElement(personajes);
 });
 const imgDomesticos = document.getElementById('domesticos');

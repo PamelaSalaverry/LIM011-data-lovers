@@ -1,30 +1,7 @@
 // importamos las funciones y la data
 import { sortData, filterData } from '../src/data.js';
-import POTTER from '../src/data/potter/potter.js';
 // Porción de data para poder comprobar todas las condiciones de la función sortData
 const prueba = [
-  {
-    name: 'Harry Potter',
-    species: 'human',
-    gender: 'male',
-    house: 'Gryffindor',
-    dateOfBirth: '31-07-1980',
-    yearOfBirth: 1980,
-    ancestry: 'half-blood',
-    eyeColour: 'green',
-    hairColour: 'black',
-    wand: {
-      wood: 'holly',
-      core: 'phoenix feather',
-      length: 11,
-    },
-    patronus: 'stag',
-    hogwartsStudent: true,
-    hogwartsStaff: false,
-    actor: 'Daniel Radcliffe',
-    alive: true,
-    image: 'http://hp-api.herokuapp.com/images/harry.jpg',
-  },
   {
     name: 'Harry Potter',
     species: 'human',
@@ -91,6 +68,72 @@ const prueba = [
     alive: true,
     image: 'http://hp-api.herokuapp.com/images/ron.jpg',
   },
+  {
+    name: 'Cedric Diggory',
+    species: 'human',
+    gender: 'male',
+    house: 'Hufflepuff',
+    dateOfBirth: '',
+    yearOfBirth: 1977,
+    ancestry: '',
+    eyeColour: 'grey',
+    hairColour: 'brown',
+    wand: {
+      wood: 'ash',
+      core: 'unicorn hair',
+      length: 12.25,
+    },
+    patronus: '',
+    hogwartsStudent: true,
+    hogwartsStaff: false,
+    actor: 'Robert Pattinson',
+    alive: false,
+    image: 'http://hp-api.herokuapp.com/images/cedric.png',
+  },
+  {
+    name: 'Cho Chang',
+    species: 'human',
+    gender: 'female',
+    house: 'Ravenclaw',
+    dateOfBirth: '',
+    yearOfBirth: '',
+    ancestry: '',
+    eyeColour: 'brown',
+    hairColour: 'black',
+    wand: {
+      wood: '',
+      core: '',
+      length: '',
+    },
+    patronus: 'swan',
+    hogwartsStudent: true,
+    hogwartsStaff: false,
+    actor: 'Katie Leung',
+    alive: true,
+    image: 'http://hp-api.herokuapp.com/images/cho.jpg',
+  },
+  {
+    name: 'Severus Snape',
+    species: 'human',
+    gender: 'male',
+    house: 'Slytherin',
+    dateOfBirth: '09-01-1960',
+    yearOfBirth: 1960,
+    ancestry: 'half-blood',
+    eyeColour: 'black',
+    hairColour: 'black',
+    wand: {
+      wood: '',
+      core: '',
+      length: '',
+    },
+    patronus: 'doe',
+    hogwartsStudent: false,
+    hogwartsStaff: true,
+    actor: 'Alan Rickman',
+    alive: false,
+    image: 'http://hp-api.herokuapp.com/images/snape.jpg',
+  },
 ];
 // Test sortData - ordena alfabéticamente
 describe('sortData', () => {
@@ -98,22 +141,16 @@ describe('sortData', () => {
     expect(typeof sortData).toBe('function');
   });
   it('debería ordenar por default', () => {
-    expect(sortData(POTTER, ' ')[0].name).toBe('Harry Potter');
+    expect(sortData(prueba, ' ')[0].name).toBe('Harry Potter');
   });
   it('debería retornar nombres de a-z', () => {
-    expect(sortData(POTTER, 'ascendente')[0].name).toBe('Argus Filch');
+    expect(sortData(prueba, 'ascendente')[0].name).toBe('Cedric Diggory');
   });
   it('debería retornar nombres z-a', () => {
-    expect(sortData(POTTER, 'descendente')[0].name).toBe('Vincent Crabbe');
+    expect(sortData(prueba, 'descendente')[0].name).toBe('Severus Snape');
   });
-  it('debería retornar nombres z-a cuando la lista está filtrada', () => {
-    expect(sortData(POTTER, 'descendente')[0].name).toBe('Vincent Crabbe');
-  });
-  it('debería retornar prueba a-z', () => {
-    expect(sortData(prueba, 'ascendente')[0].name).toBe('Harry Potter');
-  });
-  it('debería retornar prueba z-a', () => {
-    expect(sortData(prueba, 'descendente')[0].name).toBe('Ron Weasley');
+  it('debería retornar nombres z-a dentro del filtro', () => {
+    expect(sortData(prueba, 'descendente')[0].name).toBe('Severus Snape');
   });
 });
 // Test filterData - Filtra por categorías
@@ -123,38 +160,38 @@ describe('filterData', () => {
   });
   // Todos los personajes
   it('debería traer todos los elementos', () => {
-    expect(filterData(POTTER, null)).toHaveLength(POTTER.length);
+    expect(filterData(prueba, null)).toHaveLength(prueba.length);
   });
   // Por casas
   it('debería traer a Slytherin', () => {
-    expect(filterData(POTTER, { field: 'house', value: 'Slytherin' })[0].house).toBe('Slytherin');
+    expect(filterData(prueba, { field: 'house', value: 'Slytherin' })[0].house).toBe('Slytherin');
   });
   it('debería traer a Gryffindor', () => {
-    expect(filterData(POTTER, { field: 'house', value: 'Gryffindor' })[0].house).toBe('Gryffindor');
+    expect(filterData(prueba, { field: 'house', value: 'Gryffindor' })[0].house).toBe('Gryffindor');
   });
   it('debería traer a Hufflepuff', () => {
-    expect(filterData(POTTER, { field: 'house', value: 'Hufflepuff' })[0].house).toBe('Hufflepuff');
+    expect(filterData(prueba, { field: 'house', value: 'Hufflepuff' })[0].house).toBe('Hufflepuff');
   });
   it('debería traer a Ravenclaw', () => {
-    expect(filterData(POTTER, { field: 'house', value: 'Ravenclaw' })[0].house).toBe('Ravenclaw');
+    expect(filterData(prueba, { field: 'house', value: 'Ravenclaw' })[0].house).toBe('Ravenclaw');
   });
   // Por varitas
   it('debería retornar personajes con varita de pluma de fenix', () => {
-    expect(filterData(POTTER, { field: ['wand', 'core'], value: 'phoenix feather' })[0].wand.core).toBe('phoenix feather');
+    expect(filterData(prueba, { field: ['wand', 'core'], value: 'phoenix feather' })[0].wand.core).toBe('phoenix feather');
   });
   it('debería retornar personajes con varita de corazón de dragon', () => {
-    expect(filterData(POTTER, { field: ['wand', 'core'], value: 'dragon heartstring' })[0].wand.core).toBe('dragon heartstring');
+    expect(filterData(prueba, { field: ['wand', 'core'], value: 'dragon heartstring' })[0].wand.core).toBe('dragon heartstring');
   });
   it('debería retornar personajes con varitas de pelo de unicornio', () => {
-    expect(filterData(POTTER, { field: ['wand', 'core'], value: ('unicorn tail-hair', 'unicorn hair') })[0].wand.core).toBe(('unicorn tail-hair', 'unicorn hair'));
+    expect(filterData(prueba, { field: ['wand', 'core'], value: ('unicorn tail-hair', 'unicorn hair') })[0].wand.core).toBe(('unicorn tail-hair', 'unicorn hair'));
   });
   // Por patronus
   it('debería retornar patronus salvajes', () => {
-    const listaSalvajes = ['stag', 'otter', 'swan', 'doe', 'hare', 'hare', 'wolf', 'weasel', 'cedar', 'lynx'];
-    expect(listaSalvajes.includes(filterData(POTTER, { field: 'patronus', value: listaSalvajes })[0].patronus)).toBe(true);
+    const listaSalvajes = ['stag', 'otter', 'swan', 'doe', 'hare', 'hare', 'wolf', 'weasel', 'lynx'];
+    expect(listaSalvajes.includes(filterData(prueba, { field: 'patronus', value: listaSalvajes })[0].patronus)).toBe(true);
   });
   it('debería retornar patronus domesticos', () => {
     const listaPatronus = ['Jack Russell terrier', 'tabby cat', 'persian cat', 'horse'];
-    expect(listaPatronus.includes(filterData(POTTER, { field: 'patronus', value: listaPatronus })[0].patronus)).toBe(true);
+    expect(listaPatronus.includes(filterData(prueba, { field: 'patronus', value: listaPatronus })[0].patronus)).toBe(true);
   });
 });

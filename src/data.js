@@ -1,7 +1,6 @@
 // Filtro por categorías
 const filterData = (data, condition) => {
   let personajesFiltrados = [];
-  // Buscar por qué solo funciona null
   if (condition === null) {
     personajesFiltrados = data;
   } else {
@@ -25,30 +24,51 @@ const filterData = (data, condition) => {
     });
   }
   return personajesFiltrados;
+  // retorna array de objetos
 };
-// retorna array de objetos
+// Usando if
+// const sortData = (data, sortOrder) => {
+//   if (sortOrder === 'ascendente') {
+//     return data.sort((a, b) => {
+//       if (a.name > b.name) {
+//         return 1;
+//       }
+//       if (a.name < b.name) {
+//         return -1;
+//       }
+//       return 0;
+//     });
+//   } if (sortOrder === 'descendente') {
+//     return data.sort((a, b) => {
+//       if (a.name < b.name) {
+//         return 1;
+//       } if (a.name > b.name) {
+//         return -1;
+//       }
+//       return 0;
+//     });
+//   }
+//   return data;
+// };
+// Usando ternarios
+// const sortData = (data) => {
+//   let ordered = data;
+//   ordered = data.sort((a, b) => (a.name > b.name ? 1 : -1));
+//   return ordered
+// }
+// Usando ternarios y switch
 const sortData = (data, sortOrder) => {
-  if (sortOrder === 'ascendente') {
-    return data.sort((a, b) => {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-    });
-  } if (sortOrder === 'descendente') {
-    return data.sort((a, b) => {
-      if (a.name < b.name) {
-        return 1;
-      }
-      if (a.name > b.name) {
-        return -1;
-      }
-      return 0;
-    });
+  let ordered = data;
+  switch (sortOrder) {
+    case 'ascendente':
+      ordered = data.sort((a, b) => (a.name > b.name ? 1 : -1));
+      break;
+    case 'descendente':
+      ordered = data.sort((a, b) => (a.name < b.name ? 1 : -1));
+      break;
+    default:
+      break;
   }
-  return data;
+  return ordered;
 };
 export { filterData, sortData };
